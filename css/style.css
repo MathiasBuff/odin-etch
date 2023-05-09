@@ -1,0 +1,40 @@
+body {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2vh 4vw;
+    gap: 4vw;
+}
+
+.interface {
+    background-color: aqua;
+    height: 67vh;
+    width: 20vw;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border: 0.1vh solid black;
+    width: fit-content;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.cell {
+    height: 4vh;
+    width: 4vh;
+    flex: 1;
+    border: 0.1vh solid black;
+}
