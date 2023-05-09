@@ -1,5 +1,5 @@
 body {
-    height: fit-content;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -8,10 +8,19 @@ body {
     gap: 4vw;
 }
 
+button {
+    font-size: 18px;
+    padding: 20px 40px;
+    margin: 8px;
+}
+
 .interface {
     background-color: aqua;
-    height: 67vh;
-    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5%;
 }
 
 .grid {
@@ -22,6 +31,7 @@ body {
     flex-wrap: nowrap;
     border: 0.1vh solid black;
     width: fit-content;
+    max-height: fit-content;
 }
 
 .row {
