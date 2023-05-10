@@ -4,6 +4,7 @@ document.querySelector("input[type='range']").addEventListener("input", (event) 
     gridSize = event.target.value;
     createGrid();
     drawDocument();
+    document.querySelector("#resolution-display").textContent = `Resolution: ${gridSize}`;
 })
 
 document.querySelector("#reset-button").addEventListener("click", () => {
