@@ -8,6 +8,7 @@ document.querySelector("input[type='range']").addEventListener("input", (event) 
 
 document.querySelector("#reset-button").addEventListener("click", () => {
     createGrid();
+    drawDocument();
 })
 
 createGrid();
@@ -29,6 +30,9 @@ function createGrid() {
             const cell = row.appendChild(document.createElement("div"));
             cell.setAttribute("class", "cell");
             cell.addEventListener("mouseenter", (event) => {
+                event.target.style.backgroundColor = "black";
+            });
+            cell.addEventListener("touchenter", (event) => {
                 event.target.style.backgroundColor = "black";
             });
         }
