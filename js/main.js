@@ -1,31 +1,54 @@
-const GRIDSIZE = 16
+let gridSize = document.querySelector("input[type='range']").value;
 
-const grid = document.querySelector(".grid");
+document.querySelector("input[type='range']").addEventListener("input", (event) => {
+    gridSize = event.target.value;
+    createGrid();
+    drawDocument();
+})
+
+createGrid();
 
 // populate grid with (GRIDSIZE x GRIDSIZE) cells
-for (i = 0; i < GRIDSIZE; i++) {
-    const row = grid.appendChild(document.createElement("div"));
-    row.setAttribute("class", "row");
-    for (j = 0; j < GRIDSIZE; j++) {
-        const cell = row.appendChild(document.createElement("div"));
-        cell.setAttribute("class", "cell");
+function createGrid() {
+    const grid = document.querySelector(".grid");
+    while (grid.firstChild) {
+        let child = grid.firstChild
+        while (child.firstChild) {
+            child.removeChild(child.firstChild);
+        }
+        grid.removeChild(child);
+    }
+    for (i = 0; i < gridSize; i++) {
+        const row = grid.appendChild(document.createElement("div"));
+        row.setAttribute("class", "row");
+        for (j = 0; j < gridSize; j++) {
+            const cell = row.appendChild(document.createElement("div"));
+            cell.setAttribute("class", "cell");
+            cell.addEventListener("mouseenter", (event) => {
+                event.target.style.backgroundColor = "black";
+            });
+        }
     }
 }
 
-
 function drawDocument() {
-    const window_height = window.innerHeight;
-    const window_width = window.innerWidth;
+    const clientHeight = document.body.clientHeight;
+    const clientWidth = document.body.clientWidth;
 
-    const min = Math.min(window_height, window_width);
+    const min = Math.min(clientHeight, clientWidth) * 2/3;
+    
+    const grid = document.querySelector(".grid");
+    grid.style.minWidth = grid.style.maxWidth = `${min}px`;
+    grid.style.minHeight = grid.style.maxWidth = `${min}px`;
 
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
-        cell.style.width = `${(min/20) - 2}px`;
-        cell.style.height = `${(min/20) - 2}px`;
+        cell.style.width = `${min/gridSize}px`;
+        cell.style.height = `${min/gridSize}px`;
+        console.log(cell.style.width);
     })
 
-    if (window_height > window_width) {
+    if (clientHeight > clientWidth) {
         document.body.style.flexDirection = "column";
         const interface = document.querySelector(".interface");
         interface.style.flexDirection = "row";

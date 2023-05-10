@@ -20,31 +20,26 @@ button {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    padding: 5%;
+    padding: 2%;
 }
 
 .grid {
     display: flex;
+    flex: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
-    border: 0.1vh solid black;
-    width: fit-content;
-    max-height: fit-content;
+    border: 1px solid black;
 }
 
 .row {
+    flex:1;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
 }
 
 .cell {
-    height: 4vh;
-    width: 4vh;
     flex: 1;
-    border: 0.1vh solid black;
 }
