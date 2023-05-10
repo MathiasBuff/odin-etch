@@ -6,6 +6,10 @@ document.querySelector("input[type='range']").addEventListener("input", (event) 
     drawDocument();
 })
 
+document.querySelector("#reset-button").addEventListener("click", () => {
+    createGrid();
+})
+
 createGrid();
 
 // populate grid with (GRIDSIZE x GRIDSIZE) cells
